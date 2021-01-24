@@ -1,12 +1,20 @@
 #include <jojoba/jojoba.hpp>
-#include <vermilion/vermilion.hpp>
+#include <jojoba/instance.hpp>
 
 #include <cstdio>
 
-void Jojoba::Core::test(){
-    VmInstance instance(nullptr, nullptr, nullptr, Vermilion::Core::WindowCallbackFunctions{});
-    while(instance.shouldClose()){
-        instance.startRender();
-        instance.endRender({});
-    }
+JJInstance::JJInstance(unsigned int width, unsigned int height){
+    instance.reset(new Jojoba::Core::Instance(width, height));
+}
+
+JJInstance::~JJInstance(){
+    instance.reset();
+}
+
+bool JJInstance::shouldClose(){
+    return instance->shouldClose();
+}
+
+void JJInstance::render(){
+    instance->render();
 }

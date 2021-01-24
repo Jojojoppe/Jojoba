@@ -17,6 +17,7 @@ set(JOJOBA_CORE_INCLUDE_DIRS ${JOJOBA_CORE_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/thi
 
 add_library(jojoba_core SHARED
 	${CMAKE_CURRENT_SOURCE_DIR}/core/src/jojoba.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/core/src/instance.cpp
 )
 target_include_directories(jojoba_core PUBLIC
 	${CMAKE_CURRENT_SOURCE_DIR}/include	
