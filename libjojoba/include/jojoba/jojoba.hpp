@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <string>
 
 // ------------------------------------------------------
 
@@ -37,6 +38,9 @@ class JJInstance{
 
         bool shouldClose();
         void render();
+
+        // Asset managing
+        bool loadObject(const std::string& path, const std::string& name);
 
     private:
         std::unique_ptr<Jojoba::Core::Instance> instance;

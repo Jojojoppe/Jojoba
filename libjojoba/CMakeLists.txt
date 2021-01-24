@@ -18,6 +18,10 @@ set(JOJOBA_CORE_INCLUDE_DIRS ${JOJOBA_CORE_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/thi
 add_library(jojoba_core SHARED
 	${CMAKE_CURRENT_SOURCE_DIR}/core/src/jojoba.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/core/src/instance.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/core/src/asset_manager.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/core/src/stringutils.cpp
+
+	${CMAKE_CURRENT_SOURCE_DIR}/core/src/material/material_phong.cpp
 
 	${CMAKE_CURRENT_SOURCE_DIR}/core/src/imgui/imgui.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/core/src/imgui/imgui_demo.cpp
