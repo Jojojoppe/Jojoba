@@ -1,0 +1,3 @@
+[submodule "third_party/vermilion"]
+	path = third_party/vermilion
+	url = https://github.com/Jojojoppe/vermilion.git

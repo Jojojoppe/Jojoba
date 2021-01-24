@@ -10,6 +10,11 @@ set(CMAKE_BUILD_TYPE Debug)
 
 add_compile_definitions(__JOJOBA_INTERNAL__)
 
+# Add vermilion
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../third_party/vermilion ${PROJECT_BINARY_DIR}/third_party/vermilion)
+set(JOJOBA_CORE_LIBS ${JOJOBA_CORE_LIBS} vermilion_core)
+set(JOJOBA_CORE_INCLUDE_DIRS ${JOJOBA_CORE_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/third_party/vermilion/libvermilion/include)
+
 add_library(jojoba_core SHARED
 	${CMAKE_CURRENT_SOURCE_DIR}/core/src/jojoba.cpp
 )
