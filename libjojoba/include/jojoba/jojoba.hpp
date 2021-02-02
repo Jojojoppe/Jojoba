@@ -40,7 +40,7 @@ class JJInstance{
         void render();
 
         // Asset managing
-        bool loadObject(const std::string& path, const std::string& name);
+        unsigned int loadObject(const std::string& path);
 
     private:
         std::unique_ptr<Jojoba::Core::Instance> instance;

@@ -18,6 +18,6 @@ void JJInstance::render(){
     instance->render();
 }
 
-bool JJInstance::loadObject(const std::string& path, const std::string& name){
-    return instance->assetManager->loadObject(path, name);
+unsigned int JJInstance::loadObject(const std::string& path){
+    return instance->assetManager->loadObjectFromObjFile(path);
 }

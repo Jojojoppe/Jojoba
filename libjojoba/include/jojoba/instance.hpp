@@ -13,8 +13,6 @@ class AssetManager;
 
 class Instance{
     public:
-        std::shared_ptr<AssetManager> assetManager;
-
         Instance(unsigned int width, unsigned int height);
         ~Instance();
 
@@ -33,8 +31,7 @@ class Instance{
         VmRenderTarget defaultTarget;
 
         std::shared_ptr<ImGui_vermilion> imgui;
-
-        glm::mat4 model, view, projection;
+        std::unique_ptr<AssetManager> assetManager;
 
     friend class ::JJInstance;
 };
