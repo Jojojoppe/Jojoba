@@ -3,6 +3,8 @@
 #include <fstream>
 #include <cstring>
 
+#include "materials/no_material.hpp"
+
 #ifdef _WIN32
     #define PLATFORM_PATH_DELIMITER '\\'
 #else
@@ -11,6 +13,10 @@
 
 Jojoba::Core::AssetManager::AssetManager(std::shared_ptr<VmInstance> vmInstance){
     this->vmInstance = vmInstance;
+
+    // Initialize material types
+    assetMaterialTypes.insert(std::pair<unsigned int, AssetMaterialType>(IDcounter, AssetMaterialType{}));
+    assetMaterialTypes[IDcounter++].material = Jojoba::Core::NoMaterial::init(vmInstance);
 }
 
 Jojoba::Core::AssetManager::~AssetManager(){
@@ -195,3 +201,10 @@ unsigned int Jojoba::Core::AssetManager::loadObjectFromObjFile(const std::string
     return objectID;
 }
 
+unsigned int Jojoba::Core::AssetManager::createScene(){
+    assetScenes.insert(std::pair<unsigned int, AssetScene>(IDcounter, AssetScene{}));
+    assetScenes[IDcounter].scene = new Jojoba::Core::Scene();
+    unsigned int s = IDcounter;
+    IDcounter++;
+    return IDcounter;
+}

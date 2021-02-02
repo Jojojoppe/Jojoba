@@ -20,6 +20,9 @@ add_library(jojoba_core SHARED
 	${CMAKE_CURRENT_SOURCE_DIR}/core/src/instance.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/core/src/stringutils.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/core/src/asset_manager.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/core/src/scene.cpp
+
+	${CMAKE_CURRENT_SOURCE_DIR}/core/src/materials/no_material.cpp
 
 	${CMAKE_CURRENT_SOURCE_DIR}/core/src/imgui/imgui.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/core/src/imgui/imgui_demo.cpp

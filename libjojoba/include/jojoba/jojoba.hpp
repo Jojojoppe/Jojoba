@@ -31,17 +31,38 @@ namespace Core{
 // Wrapper class definitions
 // Implementation in core/src/jojoba.cpp
 
+class JJInstance;
+
+class JJScene{
+    public:
+        unsigned int ID;
+
+        unsigned int createEntity();
+
+        void entityAddObject(unsigned int entity, unsigned int object);
+
+        void entityAddCamera(unsigned int entity);
+        void useCamera(unsigned int entity);
+
+    private:
+        std::weak_ptr<Jojoba::Core::Instance> instance;
+    friend class JJInstance;
+};
+
 class JJInstance{
     public:
         JJInstance(unsigned int width=600, unsigned int height=600);
         ~JJInstance();
 
         bool shouldClose();
-        void render();
+        void render(JJScene& scene);
 
         // Asset managing
         unsigned int loadObject(const std::string& path);
+        JJScene createScene();
+        
 
     private:
-        std::unique_ptr<Jojoba::Core::Instance> instance;
+        std::shared_ptr<Jojoba::Core::Instance> instance;
 };
+

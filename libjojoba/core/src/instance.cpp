@@ -38,7 +38,7 @@ bool Jojoba::Core::Instance::shouldClose(){
     return vmInstance->shouldClose();
 }
 
-void Jojoba::Core::Instance::render(){
+void Jojoba::Core::Instance::render(JJScene& scene){
     vmInstance->startRender();
         defaultTarget.start(0.0, 0.0, 0.0, 1.0);
 

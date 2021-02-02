@@ -17,7 +17,7 @@ class Instance{
         ~Instance();
 
         bool shouldClose();
-        void render();
+        void render(JJScene& scene);
 
         // VmInstance callback functions
         static void resize(VmInstance * instance, void * userPointer, int width, int height);
@@ -34,6 +34,7 @@ class Instance{
         std::unique_ptr<AssetManager> assetManager;
 
     friend class ::JJInstance;
+    friend class ::JJScene;
 };
 
 }}
